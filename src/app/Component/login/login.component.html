@@ -1,0 +1,44 @@
+<mat-card fxLayout="row" fxLayoutAlign="center center">
+            <form [formGroup]="loginForm" (ngSubmit)="submit()" id="loginForm" style="width:300px;" fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center center">
+
+                <div class="email">
+                    <div>
+                    <mat-label>Email Id</mat-label>
+                    </div>
+                    <mat-form-field appearance="outline" class="content" id="email">
+                    <input type="email" matInput placeholder="" formControlName="email">
+                    <mat-error fxLayoutAlign="end">Email required !</mat-error>
+                    </mat-form-field>
+                </div>
+            
+                <div class="password">
+                    <div>  
+                    <mat-label>Password</mat-label>
+                    </div>     
+                    <mat-form-field appearance="outline" class="content" id="password">
+                    <input matInput [type]="hide ? 'password' : 'text'" placeholder="" formControlName="password">
+                    <mat-error>Password Required !</mat-error>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" 
+                        [attr.aria-pressed]="hide" style="border:none; outline:none; background:none;">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    </mat-form-field>
+                </div>
+
+                <div class="forget">
+                    <a>forget password?</a>
+                </div>
+
+                <div class="signInButton">
+                <button mat-flat-button color="warn" style="background-color:#A03037; border:none; color:#FFFFFF; border-radius:3px;" type="submit" id="login" class="content" id="login">Login</button>
+                </div>
+                
+                <div class="divider">OR</div>
+
+            <mat-card-actions fxLayout fxLayoutGap="7px">
+                <button mat-button style="border:none; background-color:#4266B2; color:#FFFFFF; border-radius:3px;"class="social" id="facebook">Facebook</button>
+                <button mat-button style="border:none; border-radius:3px;" class="social">Google</button>
+            </mat-card-actions>
+
+     </form>
+</mat-card>
