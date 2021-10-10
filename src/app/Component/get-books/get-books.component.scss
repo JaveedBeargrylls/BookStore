@@ -1,0 +1,85 @@
+.mat-card{
+    
+    width: 235px;
+    height: 275px;
+
+    border-radius: 3px;
+    border: 2px solid #acaaaa;
+    background-color:#F5F5F5;
+    margin-bottom:30px;
+    margin-top:30px;
+
+}
+
+.image{
+    width: 109px;
+    height: 135px;
+    opacity: 1;
+    // border: 1px solid red;
+    // margin-top: 20px;
+    margin-bottom: -90px;
+    position: relative;
+    top:-42px;
+
+}
+
+// .image-box{
+//     width: 109px;
+//     height: 135px;
+//     opacity: 1;
+//     border: 1px solid red;
+//     // margin-top: 20px;
+//     margin-bottom:-20px;
+
+// }
+
+
+.bookName{
+    width: 130px;
+    height: 19px;
+    font-size: 14px;
+}
+
+.authorName{
+
+    width: 63px;
+    height: 13px;
+    font-size: 10px;
+}
+
+.details-content{
+    width:230px;
+    height:102px;
+    // border: 1px solid red;
+    background: rgb(255, 255, 255);
+    margin-bottom:-80px;
+}
+
+.ratingbox{
+    width:33px;
+    height:16px;
+    // margin-top:46px;
+}
+.rate{
+    width:14px;
+    height:13px;
+}
+
+.star{
+    width:18px;
+    height:18px;
+}
+
+
+.wish-cart{
+    margin-top:-13px;
+}
+
+.favorite {
+    
+    cursor: pointer;
+}
+
+.add_cart{
+    cursor: pointer;
+}
