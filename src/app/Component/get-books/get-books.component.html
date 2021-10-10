@@ -1,0 +1,50 @@
+<div fxLayout="row wrap" fxLayoutAlign="space-evenly center" fxLayoutGap="3px" >
+    
+    <mat-card class="books" *ngFor="let book of bookStoreArray" fxLayout="column" fxLayoutAlign="space-evenly center">
+
+        <div class="image-box" fxLayoutAlign="center center">   
+            <img class="image" fxFlexAlign="center center" mat-card-image src="../assets\books\Image 36.png">
+        </div>
+
+        <div class="pricebox">
+                <div class="details-content" fxLayout="column" fxFlexAlign="center center">
+                    <div style="margin-left:15px; margin-top:7px;">
+                        <b class="bookName">
+                            {{book.bookName}}
+                        </b>
+
+                        <mat-card-subtitle class="authorName">
+                            by {{book.author}}
+                        </mat-card-subtitle>
+                    </div>
+                   
+                    <div fxLayout="row" fxLayoutAlign="start center" class='ratingbox' style="margin-left:15px; margin-bottom:10px;">
+                        <button mat-raised-button style="background-color:#388E3C; border:none; color:#FFFFFF;" fxLayoutAlign="center center" fxLayoutGap="15px" >
+                        <!--{{rating()}}-->4.5<img src="../assets\books\star_white_24dp.svg" class="star">
+                        </button> ({{book.quantity}})
+                    </div>
+                    
+
+
+                    <div style="margin-left:15px;" fxLayout="row" fxLayoutAlign="space-between center" >
+                    <span>Rs. {{book.price}}</span>
+                    
+
+                        <div class="wish-cart" fxLayout="row" >        
+                                <button mat-icon-button (click)="AddToWishList(book)" matTooltip="Add to WishList"style="margin-right:20px;" fxLayout="center center"> 
+                                <mat-icon style="color:#A03037;" class="favorite">favorite</mat-icon>
+                                </button>
+                                <button mat-icon-button (click)="AddToCart(book)" matTooltip="Add to Cart" style="margin-right:20px;" fxLayout="center center">
+                                <mat-icon style="color:#A03037;" class="add_cart">add_shopping_cart</mat-icon>
+                                </button>
+                        </div>
+                    </div>
+
+                </div>
+        </div>
+
+
+    </mat-card>
+
+</div>
+

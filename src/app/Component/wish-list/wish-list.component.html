@@ -1,0 +1,50 @@
+<div class="container" style="margin-left:170px; margin-top:52px; margin-right:167px; margin-bottom:50px;" fxLayout="column">
+
+            
+        <div>
+                <div class="head-link" fxLayout="row" fxLayoutAlign="start none">
+        <div routerLink="/dashboard/home" style="cursor: pointer;"><b>Home</b></div><span>/My Wishlist</span>
+        </div>
+        <mat-toolbar style="background:#F5F5F5" fxLayout="row" >
+            <div fxLayout="row" fxLayoutGap="2px" >
+                <span class="title">My Wishlist<i>({{bookStoreArray.length}})</i></span>
+            </div> 
+        </mat-toolbar> 
+        
+            <div *ngFor="let book of bookStoreArray" style="border:2px solid #E4E4E4" fxLayout="row wrap" fxLayoutAlign="space-between center" class="bodyBox">
+            
+                    <mat-card style="margin-left:36px;" fxLayoutGap="40px" fxLayout="row wrap" fxLayoutAlign="start center">
+
+                        <div>
+                            <img mat-card-image src="../assets\books\Image 36.png" alt="" class="image">
+                        </div>
+
+                        <div class="pricebox" >
+                            
+                            <div class="details-content" fxLayout="column" fxLayoutAlign="start none">
+                                
+                                <div style="margin-left:15px;" fxLayoutGap="20px">
+
+                                    <mat-card-content fxLayout="column">
+                                       <strong>{{book.product_id.bookName}}</strong>
+                                        <a>by {{book.product_id.author}}</a>
+                                    
+                                    </mat-card-content>
+                                    
+                                </div>
+
+                                                    
+                                <div style="margin-left:15px; width:60px; height:20px; " fxLayout="row wrap" fxLayoutAlign="space-between center" >
+                                    <b>Rs. {{book.product_id.price}}</b>
+                                </div>
+                            
+                            </div>
+                        </div>    
+
+                    </mat-card>
+
+                    <mat-icon (click)="deleteWishList(book)" matTooltip="Delete from wish-list !"style="margin-right:40px; cursor:pointer;">delete_outline</mat-icon>
+            </div>
+        </div>
+
+</div>

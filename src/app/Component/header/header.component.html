@@ -3,33 +3,40 @@
     <mat-toolbar style="background:#A03037" fxLayout="row" fxLayoutAlign="space-around center">
 
             <!--BookStore logo-->
-            <div fxLayout="row" fxLayoutGap="10px">
-            
+            <div fxLayout="row" fxLayoutGap="2px" >
+                <button mat-icon-button routerLink="/dashboard" matTooltip="BookStore"style="background-color:#A03037; border:none; cursor:pointer;">
                 <img src='../assets\header\education.svg' class="booklogo">
-                <span><h1 style="color:#FFFFFF">Bookstore</h1></span>
+                </button>
+                <span style="color:#FFFFFF;" class="title">Bookstore</span>
             
             </div>
             
             <!--Search_Bar-->
-            <div fxLayout="row">
+            <div class="search"fxLayout="row" fxLayoutAlign="none center">
             
-                <img style="background:black;" src='../assets\header\search_white_24dp.svg' class="searchIcon">
-                <input type="text" placeholder="search.." class="searchInput">
+                <img src='../assets\header\search_black_24dp.svg' class="search-icon">
+                <input type="text" placeholder="search.." class="searchinput">
                 
             </div>
             
-            <!-- Cart -->
-            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="35px">
+            <!-- Profile & Cart -->
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="30px">
                 
-                <button mat-stroked-button style="background-color:#A03037; border:none; color:#FFFFFF;" fxLayout="column" fxLayoutAlign="center center">
+                <button mat-stroked-button matTooltip="Profile"style="background-color:#A03037; border:none; color:#FFFFFF; cursor:pointer; margin-left:20px;" fxLayout="column" fxLayoutAlign="center center">
                     <img src='../assets\header\person_white_24dp.svg' class="image">
                     <span style="color:#FFFFFF">Profile</span>
                 </button>
 
-                <button mat-stroked-button style="background-color:#A03037; border:none; color:#FFFFFF;" fxLayout="column" fxLayoutAlign="center center">
+                <button mat-stroked-button matTooltip="Cart" routerLink="/dashboard/cart" style="background-color:#A03037; border:none; color:#FFFFFF; cursor:pointer;" fxLayout="column" fxLayoutAlign="center center">
                     <img src='../assets\header\shopping_cart_white_24dp.svg' class="image">
                     <span style="color:#FFFFFF">Cart</span>
                 </button>
+
+                <button mat-stroked-button matTooltip="WishList"routerLink="/dashboard/wishlist" style="background-color:#A03037; border:none; color:#FFFFFF; cursor:pointer;" fxLayout="column" fxLayoutAlign="center center">
+                    <img src='../assets\books\favorite_border_white_24dp.svg' class="image">
+                    <span style="color:#FFFFFF">WishList</span>
+                </button>
+
             </div>
             
 

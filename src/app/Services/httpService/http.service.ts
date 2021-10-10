@@ -12,25 +12,14 @@ export class HttpService {
 
   BaseUrl = environment.BaseUrl
 
-  constructor(private http: HttpClient) {
-
-  
-    this.token = localStorage.getItem('token')
-
-
-
-
-    //token
-    console.log(this.token)
-    
-   }
+  constructor(private http: HttpClient) { }
 
 
 
 
    /**********POST-Service************/
 
-   postService(url: string='', payload:any, tokenRequired: boolean = false, httpOptions:any){
+   postService(url: string='', payload:any, tokenRequired: boolean =false, httpOptions:any=null){
 
     
     console.log(url);
@@ -49,9 +38,23 @@ export class HttpService {
    getService(url: string='',tokenRequired: boolean = false, httpOptions:any){
 
     console.log(url);
+    console.log(httpOptions);
+    console.log(tokenRequired);
 
     return this.http.get(url, tokenRequired && httpOptions);
     
    }
+
+   deleteService(url:string='', payload: any,  tokenRequired:boolean=false, httpOption:any) {
+    console.log(url);
+    return this.http.delete(url, tokenRequired && httpOption)
+  }
+  
+
+
+
+
+
+  
 
 }
