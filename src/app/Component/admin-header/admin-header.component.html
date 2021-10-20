@@ -1,0 +1,58 @@
+<div class="container">
+  
+    <mat-toolbar style="background:#A03037" fxLayout="row" fxLayoutAlign="space-around center">
+
+            <!--BookStore logo-->
+            <div fxLayout="row" fxLayoutGap="2px" >
+                <button mat-icon-button routerLink="/adminDashboard" matTooltip="BookStore"style="background-color:#A03037; border:none; cursor:pointer;">
+                <img src='../assets\header\education.svg' class="booklogo">
+                </button>
+                <span style="color:#FFFFFF;" class="title">Bookstore</span>
+            
+            </div>
+            
+            <!--Search_Bar-->
+            <div class="search"fxLayout="row" fxLayoutAlign="none center">
+            
+                <img src='../assets\header\search_black_24dp.svg' class="search-icon">
+                <input type="text" placeholder="search.." class="searchinput">
+                
+            </div>
+            
+            <!-- Profile & Cart -->
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="30px">
+                
+                <button mat-stroked-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" matTooltip="Profile"style="background-color:#A03037; border:none; color:#FFFFFF; cursor:pointer; margin-left:20px;" fxLayout="column" fxLayoutAlign="center center">
+                    <img src='../assets\header\person_white_24dp.svg' class="image">
+                    <span style="color:#FFFFFF">Profile</span>
+
+                    <mat-menu #menu="matMenu" class='my-class'>
+                        <div mat-menu-item >
+                            <b>Hello Javeed,</b>
+                        </div>
+                        <button mat-menu-item matTooltip="Profile" fxLayoutAlign="none center" fxLayoutGap="10px">
+                        <img src='../assets\header\person_black_24dp.svg'>  
+                        <span>Profile</span>
+                        </button>
+                        <button mat-menu-item matTooltip="My Orders" fxLayoutAlign="none center" fxLayoutGap="10px">
+                            <img src='../assets\header\account_balance_wallet_black_24dp.svg'>
+                            <span>My Orders</span>
+                        </button>   
+                        <div style="padding:30px;">
+                       <!-- <button mat-raised-button mat-menu-item style="border:1px solid #A03037;color:#A03037;" fxFlexAlign='center'>SignUp/SignIn</button>
+                        -->
+                        <button mat-raised-button mat-menu-item style="border:1px solid #A03037;color:#A03037;" (click)="LogOut()" fxFlexAlign='center'>Logout</button>
+                        </div>
+                    </mat-menu>
+                </button>
+                <!--<button mat-stroked-button matTooltip="WishList"routerLink="/dashboard/wishlist" style="background-color:#A03037; border:none; color:#FFFFFF; cursor:pointer;" fxLayout="column" fxLayoutAlign="center center">
+                    <img src='../assets\books\favorite_border_white_24dp.svg' class="image">
+                    <span style="color:#FFFFFF">WishList</span>
+                </button>-->
+
+            </div>
+            
+
+    </mat-toolbar>
+
+</div>

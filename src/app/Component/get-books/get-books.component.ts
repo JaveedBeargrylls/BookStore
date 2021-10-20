@@ -1,6 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BookService } from '../../Services/bookStoreService/book.service';
+import { Router } from '@angular/router';
+
+import books from '../../jsonFiles/books.json';
+
 
 @Component({
   selector: 'app-get-books',
@@ -9,12 +13,16 @@ import { BookService } from '../../Services/bookStoreService/book.service';
 })
 export class GetBooksComponent implements OnInit {
   
-  bookStoreArray:any=[];
+  bookStoreArray:any =[];
   token: any;
   data: any;
+  id: any;
+
+  // bookStoreArray:{ "bookName":any,"author":any,"quantity":any,"price":any}[]=books;
+
 
   
-  constructor(private bookService: BookService,private snackbar:MatSnackBar) { }
+  constructor(private bookService: BookService,private router:Router,private snackbar:MatSnackBar) { }
 
 @Input() favBooks: any;
 
@@ -27,7 +35,6 @@ export class GetBooksComponent implements OnInit {
   /****get-books****/
   getBooks(){
 
-    
     this.bookService.getBooksService().subscribe(
       (response: any) => { 
         
@@ -64,7 +71,7 @@ AddToWishList(data:any){
 
   this.bookService.AddToWishList(data).subscribe(
     
-      (response: any) => { 
+      (response: any) => {
         
         console.log('Wishlist GetBooks.ts',response)
         this.snackbar.open("Added to WishList", '', { duration: 2000,});
@@ -95,6 +102,11 @@ AddToCart(data:any){
       });
 
 }
-
+/**********Details of books*************/ 
+details(data:any){
+  this.id = data._id;
+  console.log("book-Id -> ",this.id);
+  this.router.navigate(['/dashboard/details'],{state: { details: data,id: data._id } })
+}
 
 }

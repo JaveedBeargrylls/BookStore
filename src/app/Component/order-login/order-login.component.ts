@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderLoginComponent implements OnInit {
 
+  show:boolean=false;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.changeBackground();
   }
+
+  colors:Array<any>=[
+    { code: '#ffffff', name: 'white' },
+    { code: '#FF6347', name: 'red' }
+  ]
+
+  changeBackground() {
+  //  document.body.style.background = 'red';
+}
 
 }

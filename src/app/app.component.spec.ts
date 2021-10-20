@@ -8,9 +8,7 @@ describe('AppComponent', () => {
       imports: [
         RouterTestingModule
       ],
-      declarations: [
-        AppComponent
-      ],
+      declarations: [ AppComponent ],
     }).compileComponents();
   });
 
@@ -26,10 +24,14 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('bookStore');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('bookStore app is running!');
-  });
+
+  /*******Commented this***Coz we didnt have any element in HTML to test*********/
+
+  // it('should render title', () => {
+  //   const fixture = TestBed.createComponent(AppComponent);
+  //   fixture.detectChanges();
+  //   const compiled = fixture.nativeElement as HTMLElement;
+  //   expect(compiled.querySelector('.content span')?.textContent).toContain('bookStore app is running!');
+  // });
+
 });

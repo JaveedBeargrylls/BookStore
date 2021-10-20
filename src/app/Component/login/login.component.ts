@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   loginForm! : FormGroup;
 
   hide: boolean = true;
+  logindata: any;
   constructor(private service: BookService, private router: Router,private snackbar: MatSnackBar,private formBuilder: FormBuilder,) { }
 
   ngOnInit(): void {
@@ -23,7 +24,6 @@ export class LoginComponent implements OnInit {
       password: ['',[Validators.required,Validators.minLength(6)]]
     });
   }
-
 
   submit(){
     
@@ -45,14 +45,14 @@ export class LoginComponent implements OnInit {
       
       this.router.navigateByUrl('/dashboard'),
       this.snackbar.open("Login successfull", '', { duration: 2000,});
-
-      
     },
     (error:any) => { 
 
       console.log(error)
       this.snackbar.open("Login UnSuccessfull", 'try Again', { duration: 2000, });
     });
+
+    return this.logindata
   }
   get f() { return this.loginForm.controls; }
 }

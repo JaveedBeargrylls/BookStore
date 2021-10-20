@@ -11,6 +11,11 @@ import { AuthenticationGuard } from './AuthGuard/authentication.guard';
 import { GetBooksComponent } from './Component/get-books/get-books.component';
 import { CartComponent } from './Component/cart/cart.component';
 import { WishListComponent } from './Component/wish-list/wish-list.component';
+import { PlaceOrderComponent } from './Component/place-order/place-order.component';
+import { AboutBookComponent } from './Component/about-book/about-book.component';
+import { AdminSignupComponent } from './Component/admin-signup/admin-signup.component';
+import { AdminLoginComponent } from './Component/admin-login/admin-login.component';
+import { AdminDashboardComponent } from './Component/admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
@@ -22,16 +27,34 @@ const routes: Routes = [
   {path:'footer',component:FooterComponent},
   {path:'getbooks',component:GetBooksComponent},
   {path:'cart',component:CartComponent},
+  {path:'placeorder',component:PlaceOrderComponent},
 
   {path:'',redirectTo:'orderlogin',pathMatch:'full'},
+  
+  {path:'details',component:AboutBookComponent},
+  {path:'cart',component:CartComponent},
+  {path:'wishlist',component:WishListComponent},
+
+  {path:'adminSignup',component:AdminSignupComponent},
+  {path:'adminLogin',component:AdminLoginComponent},
+
+
+  {path:'adminDashboard',component:AdminDashboardComponent,canActivate:[AuthenticationGuard],
+    children:[
+                  {path:'adminSignup',component:AdminSignupComponent},
+                  {path:'adminLogin',component:AdminLoginComponent},
+
+              ]},
+
   {path:'dashboard',component:DashboardComponent,canActivate:[AuthenticationGuard],
   
   children:[
             {path:'',redirectTo:'home',pathMatch:'full'},
             {path:'home',component:GetBooksComponent},
-            {path:'cart',component:CartComponent},
             {path:'wishlist',component:WishListComponent},
-
+            {path:'cart',component:CartComponent},
+            {path:'details',component:AboutBookComponent},
+            {path:'placeorder',component:PlaceOrderComponent}
   ]},
 
 

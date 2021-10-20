@@ -1,0 +1,9 @@
+[
+    
+    { "bookName":"Onepiece","author":"Luffy","quantity":10,"price":2500},
+    { "bookName":"King of Pirates","author":"Ace","quantity":10,"price":2500},
+    { "bookName":"DemonKing","author":"Javeed","quantity":10,"price":2500},
+    { "bookName":"Make my way","author":"Rogger","quantity":10,"price":2500}
+
+
+]
