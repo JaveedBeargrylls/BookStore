@@ -24,6 +24,8 @@ import { AdminLoginComponent } from './Component/admin-login/admin-login.compone
 import { AdminSignupComponent } from './Component/admin-signup/admin-signup.component';
 import { AdminDashboardComponent } from './Component/admin-dashboard/admin-dashboard.component';
 import { AdminHeaderComponent } from './Component/admin-header/admin-header.component';
+import { AdminBooksPageComponent } from './Component/admin-books-page/admin-books-page.component';
+
 
 
 
@@ -50,7 +52,11 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
-
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
+import { AdminUpdateComponent } from './Component/admin-update/admin-update.component';
 
 
 
@@ -73,7 +79,9 @@ import {MatTableModule} from '@angular/material/table';
     AdminLoginComponent,
     AdminSignupComponent,
     AdminDashboardComponent,
-    AdminHeaderComponent
+    AdminHeaderComponent,
+    AdminBooksPageComponent,
+    AdminUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -96,7 +104,12 @@ import {MatTableModule} from '@angular/material/table';
     MatSelectModule,
     MatDialogModule,
     MatMenuModule,
-    MatTableModule
+    MatTableModule,
+    MatBadgeModule,
+    MatPaginatorModule,
+    MatCheckboxModule,
+    MatRadioModule
+
 
   ],
   providers: [

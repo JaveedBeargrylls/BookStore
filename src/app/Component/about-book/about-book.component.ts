@@ -25,15 +25,10 @@ export class AboutBookComponent implements OnInit {
     console.log(this.booksdata);
 
    }
-
-    getValue(data:any){
-    console.warn(data);
-    this.currentValue=data
-    
-  }
+   
   ngOnInit(): void {
 
-  this.getData()
+  this.getData();
   
 }
 

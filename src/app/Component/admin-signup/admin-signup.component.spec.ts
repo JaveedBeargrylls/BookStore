@@ -37,7 +37,28 @@ describe('AdminSignupComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    // test case for submit
+  it('SignUP submit test',()=>{
+    component.submit();
+    expect(component.submit).toBeTruthy();
   });
+
+  //SignUpform test cases
+
+  it('ngOninit Invalid Test',()=>{
+    component.signUpForm.controls['fullName'].setValue('');
+    component.signUpForm.controls['email'].setValue('');
+    component.signUpForm.controls['password'].setValue('');
+    component.signUpForm.controls['mobileNumber'].setValue('');
+    expect(component.signUpForm.valid).toBeFalsy();
+  });
+
+  it('ngOninit valid Test',()=>{
+    component.signUpForm.controls['fullName'].setValue('abcdef');
+    component.signUpForm.controls['email'].setValue('abc@gmail.com');
+    component.signUpForm.controls['password'].setValue('123456');
+    component.signUpForm.controls['mobileNumber'].setValue('9876543210');
+    expect(component.signUpForm.valid).toBeTruthy();
+  });
+
 });

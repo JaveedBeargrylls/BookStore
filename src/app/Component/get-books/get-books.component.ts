@@ -4,6 +4,7 @@ import { BookService } from '../../Services/bookStoreService/book.service';
 import { Router } from '@angular/router';
 
 import books from '../../jsonFiles/books.json';
+import { DataService } from '../../Services/dataService/data.service';
 
 
 @Component({
@@ -18,11 +19,15 @@ export class GetBooksComponent implements OnInit {
   data: any;
   id: any;
 
+  show:any = true;
+
+  
+
   // bookStoreArray:{ "bookName":any,"author":any,"quantity":any,"price":any}[]=books;
 
 
   
-  constructor(private bookService: BookService,private router:Router,private snackbar:MatSnackBar) { }
+  constructor(private bookService: BookService,private router:Router,private snackbar:MatSnackBar,private dataService:DataService) { }
 
 @Input() favBooks: any;
 
@@ -30,6 +35,11 @@ export class GetBooksComponent implements OnInit {
 
     this.token = localStorage.getItem('token')
     this.getBooks();
+
+    this.dataService.recevieData.subscribe(
+      (response:any)=>{
+        console.log(response);
+        this.recentGetBooks();})
   }
 
   /****get-books****/
@@ -47,6 +57,11 @@ export class GetBooksComponent implements OnInit {
       })
   }
 
+  recentGetBooks(){
+
+    this.bookStoreArray.reverse();
+    
+  }
 /*******For-random-ratings**********/
 rating(){
   const rate = Math.max((Math.random()*4)+1);
@@ -95,6 +110,8 @@ AddToCart(data:any){
         
         console.log('Add to cart',response)
         this.snackbar.open("Added to Cart", '', { duration: 2000,});
+        this.dataService.sendData(response);
+
         
       },
       

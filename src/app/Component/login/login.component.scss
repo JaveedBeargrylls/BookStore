@@ -14,9 +14,6 @@
     width: 126px;
     height: 37px;
 }
-.forget{
-    margin-left:140px;
-}
 .signInButton{
     font-size: 15px;
     font-style: Roboto, Regular;
@@ -48,4 +45,11 @@
   
   .divider:not(:empty)::after {
     margin-left: 0.25em;
+  }
+  .selectBox{
+    border: 1px solid black;
+  }
+  .selection{
+    width:40%;
+    height:10px;
   }

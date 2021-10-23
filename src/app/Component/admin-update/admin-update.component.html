@@ -1,0 +1,35 @@
+<div class="main-container">
+    <div class="update" fxLayout="row wrap">
+        
+        <div class="image">
+            <img class="image" style="cursor: pointer;width:80%;" fxFlexAlign="center center" mat-card-image src="../assets\books\Image 36.png">
+        </div>
+        <div fxLayout="column wrap" style="width:30%;" fxLayoutGap="20px" fxLayoutAlign="center center">
+            <div class="author">
+                <mat-label>Author</mat-label>
+                <input [(ngModel)]="author" style="height:30px;" placeholder="Author">
+            </div>
+            <div class="bookname">
+                <mat-label>BookName</mat-label>
+                <input [(ngModel)]="bookName" style="height:30px;" placeholder="bookname">
+            </div>
+            <div class="description">
+                <mat-label>Descripiton</mat-label>
+                <input [(ngModel)]="description" style="height:30px;" placeholder="description">
+            </div>
+            <div class="price">
+                <mat-label>Price</mat-label>
+                <input [(ngModel)]="price" style="height:30px;" placeholder="price">
+            </div>
+            <div class="quantity">
+                <mat-label>Quantity</mat-label>
+                <input [(ngModel)]="quantity" style="height:30px;" placeholder="quantity">
+            </div>
+        </div>
+    </div>
+
+    <div class="closebtn" style="margin-top:10px;width:78%" fxLayoutAlign="end end">
+        <button mat-button fxLayoutAlign="center center" (click)="updateBook()" style="cursor:pointer;width:20%;height:30px;background:#4266B2;border:none;color:white;" id="close"  fxLayout="row">Update</button>
+    </div>
+
+</div>

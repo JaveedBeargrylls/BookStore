@@ -2,7 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
-import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -27,6 +27,7 @@ fdescribe('LoginComponent', () => {
           MatInputModule,
           BrowserAnimationsModule,
           MatIconModule,
+          
  ],
       declarations: [ LoginComponent ]
     })
@@ -39,6 +40,11 @@ fdescribe('LoginComponent', () => {
     fixture.detectChanges();
   });
 
+  
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
 //Test case for Submitted
 
   it('Login Submit test',() =>{
@@ -46,13 +52,18 @@ fdescribe('LoginComponent', () => {
     expect(component.submit).toBeTruthy();
   })
 
+  it('Admin-Login Submit test',() =>{
+    component.adminsubmit();
+    expect(component.adminsubmit).toBeTruthy();
+  })
+
 // Test case for email & password ngOninit
 
 it('ngOnint password and email InValid test',() =>{
   
-  component.loginForm.controls['email'].setValue('');
-  component.loginForm.controls['password'].setValue('');
-  expect(component.loginForm.valid).toBeFalsy();
+  component.loginForm.controls['email'].setValue('xyz123');
+  component.loginForm.controls['password'].setValue('321654');
+  expect(component.loginForm.invalid).toBeFalsy();
 
 })
 

@@ -25,7 +25,13 @@ describe('WishListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('get wishList', () => {
+    component.getWishlist();
+    expect(component.getWishlist).toBeTruthy();
+  });
+
+  it('delete wishList', () => {
+    component.deleteWishList([]);
+    expect(component.deleteWishList).toBeTruthy();
   });
 });

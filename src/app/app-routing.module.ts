@@ -16,6 +16,7 @@ import { AboutBookComponent } from './Component/about-book/about-book.component'
 import { AdminSignupComponent } from './Component/admin-signup/admin-signup.component';
 import { AdminLoginComponent } from './Component/admin-login/admin-login.component';
 import { AdminDashboardComponent } from './Component/admin-dashboard/admin-dashboard.component';
+import { AdminBooksPageComponent } from './Component/admin-books-page/admin-books-page.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
@@ -37,12 +38,12 @@ const routes: Routes = [
 
   {path:'adminSignup',component:AdminSignupComponent},
   {path:'adminLogin',component:AdminLoginComponent},
+  {path:'adminBooks',component:AdminBooksPageComponent},
 
 
   {path:'adminDashboard',component:AdminDashboardComponent,canActivate:[AuthenticationGuard],
     children:[
-                  {path:'adminSignup',component:AdminSignupComponent},
-                  {path:'adminLogin',component:AdminLoginComponent},
+                  {path:'adminBooks',component:AdminBooksPageComponent},
 
               ]},
 

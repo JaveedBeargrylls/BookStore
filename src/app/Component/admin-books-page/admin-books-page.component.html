@@ -1,0 +1,46 @@
+<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px;">
+            <div style=";width:100%;"fxLayout="row wrap" fxLayoutAlign="space-between center" >
+            <span><h2><strong style="margin-left:80px;">Books({{bookStoreArray.length}})</strong></h2></span>
+                <mat-form-field appearance="outline" class="sortBy" style="margin-right:75px;margin-top:20px;font-size:12px;">
+                <mat-label>Sort by..</mat-label>
+                <mat-select>
+                    <mat-option >None</mat-option>
+                    <mat-option value="option1">Price: Low to High</mat-option>
+                    <mat-option value="option2">Price: High to Low</mat-option>
+                    <mat-option value="option3">Newest Arrivals</mat-option>
+                </mat-select>
+                </mat-form-field>
+            </div>
+        <div>
+            <table class="table" >
+
+                <tr>
+                    <th>Id</th>
+                    <th>BookImage</th>
+                    <th>Author</th>
+                    <th>BookName</th>
+                    <th>description</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>CreatedAt</th>
+                    <th>UpdatedAt</th>
+                </tr>
+
+                
+                <tr *ngFor="let book of bookStoreArray">
+                    <td>{{book._id}}</td>
+                    <td>
+                    <img class="image" style="cursor: pointer;" (click)="openDialog(book)" fxFlexAlign="center center" mat-card-image src="../assets\books\Image 36.png">
+                    </td>
+                    <td>{{book.author}}</td>
+                    <td>{{book.bookName}}</td>
+                    <td>{{book.description}}</td>
+                    <td>{{book.price}}</td>
+                    <td>{{book.quantity}}</td>
+                    <td>{{book.createdAt}}</td>
+                    <td>{{book.updatedAt}}</td>
+                </tr>
+
+            </table>
+        </div>
+</div>    

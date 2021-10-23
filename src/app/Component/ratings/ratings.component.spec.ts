@@ -28,7 +28,13 @@ describe('RatingsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('feed back test', () => {
+    component.feedback();
+    expect(component.feedback).toBeTruthy();
   });
+
+  it('get feedBack test', () => {
+    component.getFeedback();
+    expect(component.getFeedback).toBeTruthy();
+  })
 });

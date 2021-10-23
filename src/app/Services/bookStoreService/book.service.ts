@@ -259,6 +259,19 @@ addToCartService(data:any){
 
   }
 
+  /***********UPDATE-BOOK*****ADMIN*******/
+    updateBook(data:any) {
+    this.token = localStorage.getItem('token');
+    let options = {
+      headers: new HttpHeaders({
+        'x-access-token': this.token,
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.httpService.postService(this.BaseUrl+'/bookstore_user/admin/update/book/'+data.Id,data,true, options);
+  }
+
+
 
 }
 

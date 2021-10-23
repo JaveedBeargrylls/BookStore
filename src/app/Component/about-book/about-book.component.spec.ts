@@ -20,7 +20,8 @@ describe('AboutBookComponent', () => {
                 MatSnackBarModule
               ],
       declarations: [ AboutBookComponent,
-                      RatingsComponent, ]
+                      RatingsComponent,
+                      GetBooksComponent ]
     })
     .compileComponents();
   });
@@ -30,8 +31,9 @@ describe('AboutBookComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  
+  it('test case for Getdata AboutBook', () => {
+    component.getData();
+    expect(component.getData).toBeTruthy();
+  })
 });

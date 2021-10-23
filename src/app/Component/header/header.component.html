@@ -51,8 +51,8 @@
                 </button>
 
                 <button mat-stroked-button matTooltip="Cart" routerLink="/dashboard/cart" style="background-color:#A03037; border:none; color:#FFFFFF; cursor:pointer;" fxLayout="column" fxLayoutAlign="center center">
-                    <img src='../assets\header\shopping_cart_white_24dp.svg' class="image">
-                    <span style="color:#FFFFFF">Cart</span>
+                    <img  src='../assets\header\shopping_cart_white_24dp.svg' class="image">
+                    <span style="color:#FFFFFF" matBadge="{{cartArray.length}}" matBadgeOverlap="false">Cart</span>
                 </button>
 
                 <!--<button mat-stroked-button matTooltip="WishList"routerLink="/dashboard/wishlist" style="background-color:#A03037; border:none; color:#FFFFFF; cursor:pointer;" fxLayout="column" fxLayoutAlign="center center">

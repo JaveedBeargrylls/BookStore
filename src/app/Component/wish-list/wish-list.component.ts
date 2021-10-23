@@ -55,7 +55,8 @@ export class WishListComponent implements OnInit {
       //   data_id:this.data._id
       // }
     
-      this.bookService.deleteWishList(data).subscribe(
+      try{
+              this.bookService.deleteWishList(data).subscribe(
         
           (response: any) => { 
             
@@ -70,6 +71,11 @@ export class WishListComponent implements OnInit {
           
           (error: any) => {console.log(error);
           });
+      }
+      catch(error){
+          console.log(error);
+          
+      }
     }
     
 }

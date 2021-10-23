@@ -43,4 +43,28 @@ describe('AdminLoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  //Test case for Submitted
+
+  it('Login Submit test',() =>{
+    component.submit();
+    expect(component.submit).toBeTruthy();
+  })
+
+// Test case for email & password ngOninit
+
+it('ngOnint password and email InValid test',() =>{
+  
+  component.loginForm.controls['email'].setValue('');
+  component.loginForm.controls['password'].setValue('');
+  expect(component.loginForm.valid).toBeFalsy();
+
+})
+
+it('ngOnint password and email valid test',() =>{
+  component.loginForm.controls['email'].setValue('abc123@gmail.com');
+  component.loginForm.controls['password'].setValue('Abc@123');
+  expect(component.loginForm.valid).toBeTruthy();
+})
+
 });

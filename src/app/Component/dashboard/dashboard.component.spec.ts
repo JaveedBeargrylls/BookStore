@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -19,6 +20,7 @@ describe('DashboardComponent', () => {
                 MatSnackBarModule,
                 MatMenuModule,
                 MatToolbarModule,
+                HttpClientModule
 
       ],
       declarations: [ DashboardComponent,

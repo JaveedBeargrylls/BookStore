@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { AdminHeaderComponent } from './admin-header.component';
@@ -16,6 +17,7 @@ describe('AdminHeaderComponent', () => {
                   MatSnackBarModule,
                   MatMenuModule,
                   MatToolbarModule,
+                  BrowserAnimationsModule
                   ],
       declarations: [ AdminHeaderComponent ]
     })
@@ -31,4 +33,11 @@ describe('AdminHeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  //header test
+
+  it('header test', () => {
+    component.LogOut();
+    expect(component.LogOut).toBeTruthy();
+  })
 });

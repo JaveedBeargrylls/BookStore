@@ -12,7 +12,6 @@ export class OrderLoginComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.changeBackground();
   }
 
   colors:Array<any>=[
@@ -23,5 +22,13 @@ export class OrderLoginComponent implements OnInit {
   changeBackground() {
   //  document.body.style.background = 'red';
 }
+
+  // openDialog() {
+  //   this.dialog.open(OrderLoginComponent, {
+  //     data: {
+  //       animal: 'panda'
+  //     }
+  //   });
+  // }
 
 }

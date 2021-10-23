@@ -12,6 +12,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
+import { BookService } from 'src/app/Services/bookStoreService/book.service';
+import { By } from '@angular/platform-browser';
 
 
 describe('SignUpComponent', () => {
@@ -34,7 +36,8 @@ describe('SignUpComponent', () => {
         BrowserAnimationsModule,
         MatCardModule
         ],
-      declarations: [ SignUpComponent ]
+      declarations: [ SignUpComponent ],
+      providers:[ BookService ]
     })
     .compileComponents();
   });
@@ -45,7 +48,33 @@ describe('SignUpComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+    it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+  // test case for submit
+  it('SignUP submit test',()=>{
+    component.submit();
+    expect(component.submit).toBeTruthy();
+  });
+
+  //SignUpform test cases
+
+  it('ngOninit Invalid Test',()=>{
+    component.signUpForm.controls['fullName'].setValue('');
+    component.signUpForm.controls['email'].setValue('');
+    component.signUpForm.controls['password'].setValue('');
+    component.signUpForm.controls['mobileNumber'].setValue('');
+    expect(component.signUpForm.valid).toBeFalsy();
+  });
+
+  it('ngOninit valid Test',()=>{
+    component.signUpForm.controls['fullName'].setValue('abcdef');
+    component.signUpForm.controls['email'].setValue('abc@gmail.com');
+    component.signUpForm.controls['password'].setValue('123456');
+    component.signUpForm.controls['mobileNumber'].setValue('9876543210');
+    expect(component.signUpForm.valid).toBeTruthy();
+  });
+
 });

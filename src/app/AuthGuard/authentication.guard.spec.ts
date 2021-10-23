@@ -3,6 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { AuthenticationGuard } from './authentication.guard';
 
+
 describe('AuthenticationGuard', () => {
   let guard: AuthenticationGuard;
 
@@ -16,4 +17,9 @@ describe('AuthenticationGuard', () => {
   it('should be created', () => {
     expect(guard).toBeTruthy();
   });
+
+  it('AuthGuard should be created', () => {
+    expect(guard).toBeTruthy();
+
+  })
 });
