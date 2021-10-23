@@ -14,15 +14,15 @@ export class BookService {
 
   constructor(private httpService: HttpService) {
 
-    this.token = localStorage.getItem('token')
-    console.log(this.token);
+    this.token = localStorage.getItem('token');
+      console.log(this.token);
     
    }
 
    
 
 
-   /***********SignUP***********/
+   /******User*****SignUP***********/
 
    signUp(data:any){
 
@@ -39,10 +39,10 @@ export class BookService {
     // console.log(Authorization)
     
 
-    return this.httpService.postService(this.BaseUrl+'/bookstore_user/add_wish_list'+'/'+data,data,false,httpAuthOptions)
+    return this.httpService.postService(this.BaseUrl+'/bookstore_user/registration',data,false,httpAuthOptions)
    }
 
-   /**********Login************/
+   /*******User***Login************/
    login(data:any){
 
     let httpAuthOptions = {
@@ -59,6 +59,46 @@ export class BookService {
     
 
     return this.httpService.postService(this.BaseUrl+'/bookstore_user/login',data,false,httpAuthOptions)
+   }
+
+
+   /*****Admin******SignUP***********/
+
+   adminSignUp(data:any){
+
+    let httpAuthOptions = {
+
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': this.token
+      })
+    };
+    
+    console.log(httpAuthOptions);
+    console.log(data);
+    // console.log(Authorization)
+    
+
+    return this.httpService.postService(this.BaseUrl+'/bookstore_user/admin/registration',data,false,httpAuthOptions)
+   }
+
+   /*****Admin*****Login************/
+   adminLogin(data:any){
+
+    let httpAuthOptions = {
+
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': this.token,
+      })
+    };
+    
+    console.log(httpAuthOptions);
+    console.log(data);
+    // console.log(Authorization)
+    
+
+    return this.httpService.postService(this.BaseUrl+'/bookstore_user/admin/login',data,false,httpAuthOptions)
    }
 
 
@@ -161,7 +201,77 @@ addToCartService(data:any){
       })
     }
 
-  return this.httpService.deleteService(this.BaseUrl+'/bookstore_user/remove_cart_item/'+data.product_id._id,data,true,options)
+  return this.httpService.deleteService(this.BaseUrl+'/bookstore_user/remove_cart_item/'+data._id,data,true,options)
  }
+
+
+/******Customer Details*********/
+
+  putOrder(data:any){
+
+    this.token = localStorage.getItem('token');
+    let options = {
+      headers: new HttpHeaders({
+        'x-access-token': this.token,
+        'Content-Type': 'application/json'
+      })
+    }
+
+  return this.httpService.putService(this.BaseUrl+'/bookstore_user/edit_user',data,true,options)
+ }
+
+/**********Order***********/
+  order(data: any) {
+    this.token = localStorage.getItem('token');
+    let options = {
+      headers: new HttpHeaders({
+        'x-access-token': this.token,
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.httpService.postService(this.BaseUrl+'/bookstore_user/add/order',data,true, options);
+  }
+
+/************Feed-Back*****POST********/
+  feedBack(review: any,data:any) {
+    this.token = localStorage.getItem('token');
+    let options = {
+      headers: new HttpHeaders({
+        'x-access-token': this.token,
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.httpService.postService(this.BaseUrl+'/bookstore_user/add/feedback/'+data,review,true,options);
+  }
+
+/************Feed-Back*******GET***********/
+  getfeedBack(id:any){
+
+    let httpAuthOptions = {
+      headers: new HttpHeaders({
+        'x-access-token': this.token,
+        'Content-Type': 'application/json'
+      })
+    }
+    console.log(httpAuthOptions); 
+    
+    return this.httpService.getService(this.BaseUrl+'/bookstore_user/get/feedback/'+id,true,httpAuthOptions);
+
+  }
+
+  /***********UPDATE-BOOK*****ADMIN*******/
+    updateBook(data:any) {
+    this.token = localStorage.getItem('token');
+    let options = {
+      headers: new HttpHeaders({
+        'x-access-token': this.token,
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.httpService.postService(this.BaseUrl+'/bookstore_user/admin/update/book/'+data.Id,data,true, options);
+  }
+
+
+
 }
 

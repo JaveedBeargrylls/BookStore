@@ -1,0 +1,14 @@
+[
+    { "bookName":"Onepiece","author":"Luffy","quantity":10,"price":2500},
+    { "bookName":"Apple","author":"Zoro","quantity":10,"price":2500},
+    { "bookName":"BLackClover","author":"Nami","quantity":10,"price":2500},
+    { "bookName":"HardWork","author":"Robin","quantity":10,"price":2500},
+    { "bookName":"Make my way","author":"Rogger","quantity":10,"price":2500},
+    { "bookName":"Alien","author":"Garp","quantity":10,"price":2500},
+    { "bookName":"Welcome to demonWorld","author":"Sanji","quantity":10,"price":2500},
+    { "bookName":"DemonKing","author":"Javeed","quantity":10,"price":2500},
+    { "bookName":"Man vs Wild","author":"beargrylls","quantity":10,"price":2500},
+    { "bookName":"Get Up","author":"Dragon","quantity":10,"price":2500},
+    { "bookName":"Down to Earth","author":"Asta","quantity":10,"price":2500},
+    { "bookName":"King of Pirates","author":"Ace","quantity":10,"price":2500}
+]

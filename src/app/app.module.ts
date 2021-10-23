@@ -17,6 +17,15 @@ import { FooterComponent } from './Component/footer/footer.component';
 import { DashboardComponent } from './Component/dashboard/dashboard.component';
 import { GetBooksComponent } from './Component/get-books/get-books.component';
 import { HeaderComponent } from './Component/header/header.component';
+import { PlaceOrderComponent } from './Component/place-order/place-order.component';
+import { AboutBookComponent } from './Component/about-book/about-book.component';
+import { RatingsComponent } from './Component/ratings/ratings.component';
+import { AdminLoginComponent } from './Component/admin-login/admin-login.component';
+import { AdminSignupComponent } from './Component/admin-signup/admin-signup.component';
+import { AdminDashboardComponent } from './Component/admin-dashboard/admin-dashboard.component';
+import { AdminHeaderComponent } from './Component/admin-header/admin-header.component';
+import { AdminBooksPageComponent } from './Component/admin-books-page/admin-books-page.component';
+
 
 
 
@@ -41,7 +50,13 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
-
+import {MatMenuModule} from '@angular/material/menu';
+import {MatTableModule} from '@angular/material/table';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
+import { AdminUpdateComponent } from './Component/admin-update/admin-update.component';
 
 
 
@@ -57,7 +72,16 @@ import {MatDialogModule} from '@angular/material/dialog';
     DashboardComponent,
     GetBooksComponent,
     CartComponent,
-    WishListComponent
+    WishListComponent,
+    PlaceOrderComponent,
+    AboutBookComponent,
+    RatingsComponent,
+    AdminLoginComponent,
+    AdminSignupComponent,
+    AdminDashboardComponent,
+    AdminHeaderComponent,
+    AdminBooksPageComponent,
+    AdminUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -79,6 +103,13 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatExpansionModule,
     MatSelectModule,
     MatDialogModule,
+    MatMenuModule,
+    MatTableModule,
+    MatBadgeModule,
+    MatPaginatorModule,
+    MatCheckboxModule,
+    MatRadioModule
+
 
   ],
   providers: [

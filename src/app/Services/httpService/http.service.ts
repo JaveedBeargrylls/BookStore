@@ -49,6 +49,11 @@ export class HttpService {
     console.log(url);
     return this.http.delete(url, tokenRequired && httpOption)
   }
+
+  putService(url:any, payload: any,  tokenRequired:boolean=false, httpOption:any) {
+    console.log(url);
+    return this.http.put(url,payload, tokenRequired && httpOption)
+  }
   
 
 

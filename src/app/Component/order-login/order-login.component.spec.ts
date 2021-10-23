@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { OrderLoginComponent } from './order-login.component';
 
 describe('OrderLoginComponent', () => {
@@ -8,6 +10,10 @@ describe('OrderLoginComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports:[
+                BrowserAnimationsModule,
+
+      ],
       declarations: [ OrderLoginComponent ]
     })
     .compileComponents();

@@ -1,16 +1,38 @@
 
-<div class="container" fxLayoutAlign="center center" >
+<div class="container" fxLayoutAlign="center center" style="background-color: #9D9D9D;">
 
-    <div class="imageBox" fxLayout="column" fxLayoutAlign="start none"> 
+    <div class="imageBox" fxLayout="column" fxFlex="42" fxHide.xs fxLayoutAlign="start none"> 
         <img src="../assets\Logo.png" class="image">
         <h2 class="title">ONLINE BOOK SHOPPING</h2>
     </div>
 
         <div class="signUpBox">
-            <mat-tab-group mat-align-tabs="start">
-            <mat-tab label="LOGIN" ><app-login></app-login></mat-tab>
-            <mat-tab label="SIGNUP"><app-sign-up></app-sign-up></mat-tab>
+            <mat-tab-group mat-align-tabs="center">
+            
+                <div>
+                    <mat-tab>
+                    <ng-template mat-tab-label class="tab-box" >LOGIN</ng-template>
+                    <app-login></app-login>
+                    </mat-tab>
+                    
+                    <mat-tab>
+                    <ng-template  mat-tab-label class="tab-box">SIGNUP</ng-template>
+                    <app-sign-up></app-sign-up>
+                    </mat-tab>
+                
+                </div>
             </mat-tab-group>
         </div>
+
+
+<!--        <div class="signUpBox">
+            <mat-tab-group mat-align-tabs="center">
+            <div>
+            <mat-tab label="LOGIN" ><app-login></app-login></mat-tab>
+            <mat-tab label="SIGNUP"><app-sign-up></app-sign-up></mat-tab>
+            </div>
+            </mat-tab-group>
+        </div>
+-->
 
 </div>

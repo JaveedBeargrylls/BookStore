@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { BookService } from 'src/app/Services/bookStoreService/book.service';
-import { DataService } from 'src/app/Services/dataService/data.service';
-import { LoginComponent } from '../login/login.component';
-import { OrderLoginComponent } from '../order-login/order-login.component';
+import { BookService } from '../../Services/bookStoreService/book.service';
+import { DataService } from '../../Services/dataService/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -14,25 +13,46 @@ import { OrderLoginComponent } from '../order-login/order-login.component';
 export class CartComponent implements OnInit {
 
 
-  constructor(private bookService:BookService,private dialog: MatDialog,private dataService:DataService,private snackbar:MatSnackBar) { }
+  constructor(private router:Router,private formBuilder: FormBuilder,private service:BookService,private dataService:DataService,private snackbar:MatSnackBar) { }
   
   bookStoreArray:any=[];
+  book:any
   quantity:any;
 
+  BookingForm!: FormGroup;
+
+  displayAddress = true;
+  displayButton = true;
+  displayCart = true;
+  displayContinueButton = true;
+
+  addressType:any = ['Home', 'Office', 'Other'];
+  
   ngOnInit(): void {
 
     this.getCartList();
     this.dataService.recevieData.subscribe(
       (response:any)=>{
         console.log(response);
-        this.getCartList();
-      })
+        this.getCartList();})
+
+    /*****form field****/
+      
+      this.BookingForm = this.formBuilder.group({
+
+      fullName: ['',Validators.required],
+      phonenumber: ['',[Validators.required,Validators.minLength(10)]],
+      fullAddress: ['',[Validators.required,Validators.minLength(6)]],
+      city: ['',[Validators.required,Validators.minLength(3)]],
+      state: ['',[Validators.required,Validators.minLength(3)]],
+      addressType:['',Validators.required]
+    });
   }
       /****get-books****/
       getCartList(){
 
     
-        this.bookService.getCartList().subscribe(
+        this.service.getCartList().subscribe(
           (response: any) => { 
             
             console.log(response.result)
@@ -50,7 +70,7 @@ export class CartComponent implements OnInit {
         //   data_id:this.data._id
         // }
       
-        this.bookService.removeCart(data).subscribe(
+        this.service.removeCart(data).subscribe(
           
             (response: any) => { 
               
@@ -65,18 +85,75 @@ export class CartComponent implements OnInit {
             });
       }
 
-// /******dailouge box******/
-// openDialog(): void {
-//   const dialogRef = this.dialog.open(LoginComponent, {
-//     width: '250px;',
-//     height:'250px;',
+/*****AddressToggle********/
+
+addressToggle(){
+  this.displayAddress = false
+  this.displayButton = false
+}
+
+/**********Customer Details***************/
+submit(){
     
-//   });
+      this.displayCart = false
+      this.displayContinueButton = false
+      let data={
+ 
+      fullName: this.BookingForm.value.fullName,
+      phonenumber: this.BookingForm.value.phonenumber,
+      fullAddress: this.BookingForm.value.fullAddress,
+      city: this.BookingForm.value.city,
+      state: this.BookingForm.value.state,
+      addressType: this.BookingForm.value.addressType,
+      service: "advance",
+    }
+    
+    console.log(data);
+    this.service.putOrder(data).subscribe(
+      (response:any) => { console.log(response);
+      
+      this.snackbar.open('Successfully Updated details','',{duration:2000,}); },
 
-//   dialogRef.afterClosed().subscribe(result => {
-//     console.log('The dialog was closed');
-//   });
-// }
+      (error) => {console.log(error);
+      
+        this.snackbar.open('Error at update details','try Again',{duration:2000,});
+      });
+}
 
+
+/*************Checkout************/
+checkout(){
+  this.book = this.book;
+  
+  let orders:Array<any>=[]
+
+  for(this.book of this.bookStoreArray){
+    
+    let order = {
+      "product_id": this.book.product_id._id,
+      "product_name": this.book.product_id.bookName,
+      "product_quantity": this.book.product_id.quantity,
+      "product_price": this.book.product_id.price,
+    }
+    
+    orders.push(order)
+  }
+  let OrderDetails={
+
+    orders: orders
+  }
+  console.log(OrderDetails)
+  this.service.order(OrderDetails).subscribe(
+    (response:any)=>{ 
+      console.log(response)
+      this.snackbar.open("successfully ordered",'',{ duration: 2000,});
+      // this.router.navigate(['/dashboard/cart/placeorder']);
+      this.router.navigate(['/dashboard/placeorder']);
+    },
+    error=>{
+      console.log(error);
+      this.snackbar.open("Order UnSuccessfull",'',{ duration: 2000,});
+    })
+}
 }
 

@@ -1,0 +1,50 @@
+
+.booklogo{
+    width: 31px;
+    height: 24px;
+    opacity: 1;
+}
+
+.title{
+
+    width: 91px;
+    height: 26px;
+
+    text-transform: capitalize;
+    opacity: 1;
+
+    font-size: 20px;
+    font-family: Roboto, Regular;
+
+}
+
+
+.image{
+    width: 31px;
+    height: 36px;
+}
+
+.search {
+    width: 490px;
+    height: 33px;
+    background: #FFFFFF no-repeat padding-box;
+    border-radius: 3px;
+    opacity: 1;
+  }
+  .searchinput {
+    width: 75%;
+    border: none;
+    outline: none;
+    margin-left: 8px;
+    height: 20px;
+    font-size: 18px;
+  }
+  .search-icon {
+    width: 22px;
+    height: 22px;
+    margin-left: 10px;
+  }
+
+.my-class  ::ng-deep.mat-menu-panel {
+    max-width: none !important;
+  }

@@ -1,50 +1,68 @@
-<div fxLayout="row wrap" fxLayoutAlign="space-evenly center" fxLayoutGap="3px" >
-    
-    <mat-card class="books" *ngFor="let book of bookStoreArray" fxLayout="column" fxLayoutAlign="space-evenly center">
 
-        <div class="image-box" fxLayoutAlign="center center">   
-            <img class="image" fxFlexAlign="center center" mat-card-image src="../assets\books\Image 36.png">
-        </div>
+ <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="3px" >
+            <div style=";width:100%;"fxLayout="row wrap" fxLayoutAlign="space-between center" >
+            <span><h2><strong style="margin-left:30px;">Books({{bookStoreArray.length}})</strong></h2></span>
+                <mat-form-field appearance="outline" class="sortBy" style="margin-right:30px;margin-top:20px;font-size:12px;">
+                <mat-label>Sort by..</mat-label>
+                <mat-select>
+                    <mat-option >None</mat-option>
+                    <mat-option value="option1">Price: Low to High</mat-option>
+                    <mat-option value="option2">Price: High to Low</mat-option>
+                    <mat-option value="option3" (click)="recentGetBooks()">Newest Arrivals</mat-option>
+                </mat-select>
+                </mat-form-field>
+            </div>
 
-        <div class="pricebox">
-                <div class="details-content" fxLayout="column" fxFlexAlign="center center">
-                    <div style="margin-left:15px; margin-top:7px;">
-                        <b class="bookName">
-                            {{book.bookName}}
-                        </b>
+            <div fxLayout="row wrap"style="width:100%;" fxLayoutAlign="space-evenly center" fxLayoutGap="3px" >
 
-                        <mat-card-subtitle class="authorName">
-                            by {{book.author}}
-                        </mat-card-subtitle>
-                    </div>
-                   
-                    <div fxLayout="row" fxLayoutAlign="start center" class='ratingbox' style="margin-left:15px; margin-bottom:10px;">
-                        <button mat-raised-button style="background-color:#388E3C; border:none; color:#FFFFFF;" fxLayoutAlign="center center" fxLayoutGap="15px" >
-                        <!--{{rating()}}-->4.5<img src="../assets\books\star_white_24dp.svg" class="star">
-                        </button> ({{book.quantity}})
-                    </div>
-                    
+                <mat-card class="books"  *ngFor="let book of bookStoreArray" fxLayout="column" fxLayoutAlign="space-evenly center">
 
-
-                    <div style="margin-left:15px;" fxLayout="row" fxLayoutAlign="space-between center" >
-                    <span>Rs. {{book.price}}</span>
-                    
-
-                        <div class="wish-cart" fxLayout="row" >        
-                                <button mat-icon-button (click)="AddToWishList(book)" matTooltip="Add to WishList"style="margin-right:20px;" fxLayout="center center"> 
-                                <mat-icon style="color:#A03037;" class="favorite">favorite</mat-icon>
-                                </button>
-                                <button mat-icon-button (click)="AddToCart(book)" matTooltip="Add to Cart" style="margin-right:20px;" fxLayout="center center">
-                                <mat-icon style="color:#A03037;" class="add_cart">add_shopping_cart</mat-icon>
-                                </button>
-                        </div>
+                    <div class="image-box"  fxLayoutAlign="center center">   
+                        <img class="image" style="cursor: pointer;"(click)="details(book)"  fxFlexAlign="center center" mat-card-image src="../assets\books\Image 36.png">
                     </div>
 
-                </div>
-        </div>
+                    <div class="pricebox">
+                            <div class="details-content" fxLayout="column" fxFlexAlign="center center">
+                                <div style="margin-left:15px; margin-top:7px;">
+                                    <b class="bookName">
+                                        {{book.bookName}}
+                                    </b>
+                                    <mat-card-subtitle class="authorName">
+                                        by {{book.author}}
+                                    </mat-card-subtitle>
+                                </div>
+                            
+                                <div fxLayout="row" fxLayoutAlign="start center" class='ratingbox' style="margin-left:15px; margin-bottom:10px;">
+                                    <button mat-raised-button style="background-color:#388E3C; border:none; color:#FFFFFF;" fxLayoutAlign="center center" fxLayoutGap="15px" >
+                                    <!--{{rating()}}-->4.5<img src="../assets\books\star_white_24dp.svg" class="star">
+                                    </button> ({{book.quantity}})
+                                </div>
+                                
 
 
-    </mat-card>
+                                <div style="margin-left:15px;" fxLayout="row" fxLayoutAlign="space-between center" >
+                                <span>Rs. {{book.price}}</span>
+                                
 
-</div>
+                                    <div class="wish-cart" fxLayout="row" >        
+                                            <button mat-icon-button (click)="AddToWishList(book)" matTooltip="Add to WishList"style="margin-right:20px;" fxLayout="center center"> 
+                                            <mat-icon style="color:#A03037;" class="favorite">favorite</mat-icon>
+                                            </button>
+                                            <button mat-icon-button (click)="AddToCart(book)" matTooltip="Add to Cart" style="margin-right:20px;" fxLayout="center center">
+                                            <mat-icon style="color:#A03037;" class="add_cart">add_shopping_cart</mat-icon>
+                                            </button>
+                                    </div>
+                                </div>
 
+                            </div>
+                    </div>
+
+
+                </mat-card>
+
+            </div>
+                <mat-paginator [length]="10"
+                    [pageSize]="2"
+                    aria-label="Select page">
+                </mat-paginator>
+    </div>

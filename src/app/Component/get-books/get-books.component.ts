@@ -1,6 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BookService } from '../../Services/bookStoreService/book.service';
+import { Router } from '@angular/router';
+
+import books from '../../jsonFiles/books.json';
+import { DataService } from '../../Services/dataService/data.service';
+
 
 @Component({
   selector: 'app-get-books',
@@ -9,12 +14,20 @@ import { BookService } from '../../Services/bookStoreService/book.service';
 })
 export class GetBooksComponent implements OnInit {
   
-  bookStoreArray:any=[];
+  bookStoreArray:any =[];
   token: any;
   data: any;
+  id: any;
+
+  show:any = true;
 
   
-  constructor(private bookService: BookService,private snackbar:MatSnackBar) { }
+
+  // bookStoreArray:{ "bookName":any,"author":any,"quantity":any,"price":any}[]=books;
+
+
+  
+  constructor(private bookService: BookService,private router:Router,private snackbar:MatSnackBar,private dataService:DataService) { }
 
 @Input() favBooks: any;
 
@@ -22,12 +35,16 @@ export class GetBooksComponent implements OnInit {
 
     this.token = localStorage.getItem('token')
     this.getBooks();
+
+    this.dataService.recevieData.subscribe(
+      (response:any)=>{
+        console.log(response);
+        this.recentGetBooks();})
   }
 
   /****get-books****/
   getBooks(){
 
-    
     this.bookService.getBooksService().subscribe(
       (response: any) => { 
         
@@ -40,6 +57,11 @@ export class GetBooksComponent implements OnInit {
       })
   }
 
+  recentGetBooks(){
+
+    this.bookStoreArray.reverse();
+    
+  }
 /*******For-random-ratings**********/
 rating(){
   const rate = Math.max((Math.random()*4)+1);
@@ -64,7 +86,7 @@ AddToWishList(data:any){
 
   this.bookService.AddToWishList(data).subscribe(
     
-      (response: any) => { 
+      (response: any) => {
         
         console.log('Wishlist GetBooks.ts',response)
         this.snackbar.open("Added to WishList", '', { duration: 2000,});
@@ -88,6 +110,8 @@ AddToCart(data:any){
         
         console.log('Add to cart',response)
         this.snackbar.open("Added to Cart", '', { duration: 2000,});
+        this.dataService.sendData(response);
+
         
       },
       
@@ -95,6 +119,11 @@ AddToCart(data:any){
       });
 
 }
-
+/**********Details of books*************/ 
+details(data:any){
+  this.id = data._id;
+  console.log("book-Id -> ",this.id);
+  this.router.navigate(['/dashboard/details'],{state: { details: data,id: data._id } })
+}
 
 }

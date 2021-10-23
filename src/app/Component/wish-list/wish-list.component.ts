@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { BookService } from 'src/app/Services/bookStoreService/book.service';
-import { DataService } from '../../Services/dataService/data.service'
+import { BookService } from '../../Services/bookStoreService/book.service';
+import { DataService } from '../../Services/dataService/data.service';
+
+import books from '../../jsonFiles/wishlist.json'
 @Component({
   selector: 'app-wish-list',
   templateUrl: './wish-list.component.html',
@@ -12,6 +14,9 @@ export class WishListComponent implements OnInit {
   constructor(private bookService:BookService, private dataService:DataService,private snackbar:MatSnackBar) { }
 
   bookStoreArray:any=[];
+
+  // bookStoreArray:{ "bookName":any,"author":any,"quantity":any,"price":any}[]=books;
+
 
 
 
@@ -50,7 +55,8 @@ export class WishListComponent implements OnInit {
       //   data_id:this.data._id
       // }
     
-      this.bookService.deleteWishList(data).subscribe(
+      try{
+              this.bookService.deleteWishList(data).subscribe(
         
           (response: any) => { 
             
@@ -65,6 +71,11 @@ export class WishListComponent implements OnInit {
           
           (error: any) => {console.log(error);
           });
+      }
+      catch(error){
+          console.log(error);
+          
+      }
     }
     
 }

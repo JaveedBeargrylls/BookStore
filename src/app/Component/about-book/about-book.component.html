@@ -1,0 +1,80 @@
+<div class="head-link" fxLayout="row" fxLayoutAlign="center center" style="width: 33%; margin-top: 37px" >
+    
+    <div class="Homelink" routerLink="/dashboard/home"><b>Home/</b></div>
+        <span>Books({{ booksdata?.quantity }})</span>
+    </div>
+
+                <div class="main-container" fxLayout="row wrap" fxLayoutAlign="center none" fxLayout.xs="column">
+                    <div class="sideBooks" fxLayout.xs="row">
+                        <div class="book1">
+                            <img src="../assets\books\Image 46.png" alt="" style="border: 1px solid #7c1e1e; padding: 5px"/>
+                        </div>
+                        <div class="book2">
+                            <img src="../assets\books\Image 1.png" alt="" style="border: 1px solid #7c1e1e; padding: 5px"/>
+                        </div>
+                </div>
+
+                <div class="main-bookbox" style="width: 25%" fxHide.xs fxHide.md fxHide.sm>
+                    <div class="book-section" style="border: 1px solid #d1d1d1; width: 100%">
+                    <div class="BigBook" style="padding: 36px 18px" fxLayoutAlign="center center">
+                        <img src="../assets\books\Image 36.png" alt="" />
+                    </div>
+                    </div>
+                    <br />
+                    <div class="bottomBox" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-between center"style="width: 100%">
+                    <button class="add" mat-raised-button color="primary">
+                        ADD TO BAG
+                    </button>
+                    <button class="wish" mat-raised-button fxLayoutAlign="center center">
+                        <img style="padding-right: 10px" src="../assets\books\favorite_white_24dp.svg" alt=""/>
+                        <span style="color:white">WISHLIST</span>
+                    </button>
+                    </div>
+           </div>
+
+                <div class="book-details" style="width: 40%; padding: 0% 2% 2% 2%">
+                    <div class="book-descrption">
+                    <h1>
+                        <b>{{ booksdata?.bookName }}</b>
+                    </h1>
+                    <h3 style="color: #878787">{{ booksdata?.author }}</h3>
+
+                    <div calss="ratingbtn" style="margin-bottom: 20px; width: 40%" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+                        <button mat-raised-button class="ratingbtn" style="background-color: #388e3c" fxLayoutAlign="start center">
+                        <span style="color: white; padding-right: 4px">4.5</span>
+                        <img src="../assets\books\star_white_24dp.svg" />
+                        </button>
+                        <span>(20)</span>
+                    </div>
+
+                    <div class="price" fxLayoutAlign="start center">
+                        <h1 fxLayoutGap="7px" fxLayout="row">
+                        <b>{{ booksdata?.price }}</b
+                        ><del>
+                            <h3>{{ booksdata?.price * 1.3 }}</h3>
+                        </del>
+                        </h1>
+                    </div>
+                    </div>
+
+                    <mat-divider></mat-divider>
+
+                    <div class="bookbreif">
+                    <ul class="book-title" style="padding: 1.5%">
+                        <li>Book Details</li>
+                    </ul>
+                    </div>
+                    <p>
+                    {{ booksdata?.description }}
+                    </p>
+
+                    <mat-divider></mat-divider>
+
+                    <div class="customerFeedback">
+                    <h2>Customer Feedback</h2>
+                    <div class="stars">
+                        <app-ratings></app-ratings>
+                    </div>
+                    </div>
+                </div>
+</div>
