@@ -1,6 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { BookService } from 'src/app/Services/bookStoreService/book.service';
+import { BookService } from '../../Services/bookStoreService/book.service';
+import { DataService } from '../../Services/dataService/data.service';
+import { AdminDeleteComponent } from '../admin-delete/admin-delete.component';
 
 @Component({
   selector: 'app-admin-update',
@@ -15,7 +18,7 @@ export class AdminUpdateComponent implements OnInit {
   price: any;
   quantity: any;
 
-    constructor(private bookservice:BookService,
+    constructor(public dialog: MatDialog,private dataService: DataService,private bookservice:BookService,
     public dialogRef: MatDialogRef<AdminUpdateComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) 
     {
@@ -52,10 +55,22 @@ export class AdminUpdateComponent implements OnInit {
 
     this.bookservice.updateBook(request).subscribe((result)=>{
       console.log(result);
+      this.dataService.sendData(result);
       this.dialogRef.close();
     
     })
     
+  }
+      openDialog(){
+    const dialogRef = this.dialog.open(AdminDeleteComponent, {
+      width: '20%',
+      data: this.data
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed',result);
+    });
+    // window.location.reload();
   }
 
 }

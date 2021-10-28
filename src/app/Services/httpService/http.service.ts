@@ -42,14 +42,16 @@ export class HttpService {
     console.log(tokenRequired);
 
     return this.http.get(url, tokenRequired && httpOptions);
-    
    }
+
+   /**********Delete-Service************/ 
 
    deleteService(url:string='', payload: any,  tokenRequired:boolean=false, httpOption:any) {
     console.log(url);
     return this.http.delete(url, tokenRequired && httpOption)
   }
 
+  /**********Put-Service************/
   putService(url:any, payload: any,  tokenRequired:boolean=false, httpOption:any) {
     console.log(url);
     return this.http.put(url,payload, tokenRequired && httpOption)

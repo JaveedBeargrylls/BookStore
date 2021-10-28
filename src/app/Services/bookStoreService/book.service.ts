@@ -268,7 +268,19 @@ addToCartService(data:any){
         'Content-Type': 'application/json'
       })
     }
-    return this.httpService.postService(this.BaseUrl+'/bookstore_user/admin/update/book/'+data.Id,data,true, options);
+    return this.httpService.putService(this.BaseUrl+'/bookstore_user/admin/update/book/'+data.Id,data,true, options);
+  }
+
+  /***********DELETE-BOOK*****ADMIN*******/
+    deleteBook(data:any) {
+    this.token = localStorage.getItem('token');
+    let options = {
+      headers: new HttpHeaders({
+        'x-access-token': this.token,
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.httpService.deleteService(this.BaseUrl+'/bookstore_user/admin/delete/book/'+data.Id,data,true, options);
   }
 
 

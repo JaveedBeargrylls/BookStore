@@ -57,6 +57,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import { AdminUpdateComponent } from './Component/admin-update/admin-update.component';
+import { AdminDeleteComponent } from './Component/admin-delete/admin-delete.component';
 
 
 
@@ -81,7 +82,8 @@ import { AdminUpdateComponent } from './Component/admin-update/admin-update.comp
     AdminDashboardComponent,
     AdminHeaderComponent,
     AdminBooksPageComponent,
-    AdminUpdateComponent
+    AdminUpdateComponent,
+    AdminDeleteComponent
   ],
   imports: [
     BrowserModule,
